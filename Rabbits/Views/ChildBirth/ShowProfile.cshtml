@@ -1,0 +1,100 @@
+﻿@model BusonessLogic.Help.Types.ChildBirthParrents
+
+@{
+    ViewBag.Title = "Дети";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowProfile</h2>
+
+<div>
+    <h4>Дети</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Имя самки")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FemaleName)
+        </dd>
+
+        <dt>
+            @Html.Label("Номер клетки")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CageNumber)
+        </dd>
+
+        <dt>
+            @Html.Label("Кличка 1го самца")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaleName1)
+        </dd>
+
+        <dt>
+            @Html.Label("Дата 1го контакта")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate1)
+        </dd>
+
+        <dt>
+            @Html.Label("Кличка 2го самца")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaleName2)
+        </dd>
+
+        <dt>
+            @Html.Label("Дата 2го контакта")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate2)
+        </dd>
+
+        <dt>
+            @Html.Label("Ожидаемая дата рождения")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectBirthday)
+        </dd>
+
+        <dt>
+            @Html.Label("Дата рождения")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.Label("Результат")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultName)
+        </dd>
+
+        <dt>
+            @Html.Label("Заметки")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "UpdateChildBirth", new { childBirthId = Model.Id }) |
+    @Html.ActionLink("Удалить", "DeleteChildBirth", new { childBirthId = Model.Id },
+    new { onclick = "return confirm('Вы уверены, что хотите удалить выбранную информацию?') ? true : false;" }) |
+    @Html.ActionLink("Назад", "ShowChildBirth")
+</p>

@@ -1,0 +1,32 @@
+﻿@model IList<Entities.MedicalServices>
+
+@{
+    ViewBag.Title = "Медицинские препараты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Медицинские препараты</h2>
+
+<div>
+    <h4>@Html.ActionLink("Добавить препарат", "AddMedicalService", "MedicalServices")</h4>
+    <hr/>
+    <table>
+        <thead>
+            <tr style="font-weight: bold">
+                <td>Название</td>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.MedicalServiceName, "ShowProfile", new {medicalServiceId = item.Id})
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<br />
+<p>
+    @Html.ActionLink("На главную", "Index", "Home")
+</p>

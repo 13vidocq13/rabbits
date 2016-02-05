@@ -1,0 +1,28 @@
+﻿@model Entities.Males
+
+@{
+    ViewBag.Title = "Профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Профиль</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Кличка")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "UpdateMale", new { maleId = Model.Id}) |
+    @Html.ActionLink("Удалить", "DeleteMale", new { maleId = Model.Id }, 
+    new { onclick = "return confirm('Вы уверены, что хотите удалить выбранного самца?') ? true : false;" }) |
+    @Html.ActionLink("Назад", "ShowMales")
+</p>

@@ -1,0 +1,68 @@
+﻿@model BusonessLogic.Help.Types.FemaleParrentsMale
+
+@{
+    ViewBag.Title = "Профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Профиль</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Кличка")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FemaleName)
+        </dd>
+
+        <dt>
+            @Html.Label("Дата рождения")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.Label("Клетка")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CageName)
+        </dd>
+
+        <dt>
+            @Html.Label("Отец1")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName1)
+        </dd>
+
+        <dt>
+            @Html.Label("Отец2")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName2)
+        </dd>
+
+        <dt>
+            @Html.Label("Мать")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotherName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "UpdateFemale", new { femaleId = Model.Id }) |
+    @Html.ActionLink("Удалить", "DeleteFemale", new { femaleId = Model.Id },
+    new { onclick = "return confirm('Вы уверены, что хотите удалить выбранную самку?') ? true : false;" }) |
+    @Html.ActionLink("Назад", "ShowFemales")
+</p>

@@ -1,0 +1,9 @@
+﻿@model InvalidOperationException
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">@Model.Message</h1>
+<h2 class="text-danger">@Html.ActionLink("Назад", (string)ViewBag.Action, (string)ViewBag.Controller)</h2>
+

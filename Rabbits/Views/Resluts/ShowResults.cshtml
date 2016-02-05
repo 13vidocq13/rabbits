@@ -1,0 +1,34 @@
+﻿@model IList<Entities.Results>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Результаты</title>
+</head>
+<body>
+    <h2>Результаты</h2>
+    <div>
+        <h4>@Html.ActionLink("Добавить результат", "AddResult")</h4>
+
+        <div style="font-weight: bold">
+            Название
+        </div>
+
+        @foreach (var item in Model)
+        {
+            @Html.ActionLink(item.Name, "ShowProfile", new { resultId = item.Id })
+            <br />
+        }
+    </div>
+    <br />
+    <p>
+        @Html.ActionLink("На главную", "Index", "Home")
+    </p>
+</body>
+</html>

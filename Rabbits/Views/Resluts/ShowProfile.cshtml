@@ -1,0 +1,28 @@
+﻿@model Entities.Results
+
+@{
+    ViewBag.Title = "Результат";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Результат</h2>
+
+<div>
+    <h4>Результат</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "UpdateResult", new { resultId = Model.Id }) |
+    @Html.ActionLink("Удалить", "DeleteResult", new { resultId = Model.Id },
+    new { onclick = "return confirm('Вы уверены, что хотите удалить выбранный результат?') ? true : false;" }) |
+    @Html.ActionLink("Назад", "ShowResults")
+</p>

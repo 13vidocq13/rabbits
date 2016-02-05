@@ -1,0 +1,69 @@
+﻿@model IList<BusonessLogic.Help.Types.FemaleParrentsMale>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Самки</title>
+</head>
+<body>
+    <div>
+        <h4>@Html.ActionLink("Добавить самку", "AddFemale")</h4>
+        <hr />
+        <table>
+            @if (Model.Count != 0)
+            {
+
+                <tr style="font-weight: bold">
+                    <td>
+                        @Html.Label("Кличка")
+                    </td>
+                    <td>
+                        @Html.Label("Дата рождения")
+                    </td>
+                    <td>
+                        @Html.Label("Клетка")
+                    </td>
+                    <td>
+                        @Html.Label("Отец1")
+                    </td>
+                    <td>
+                        @Html.Label("Отец2")
+                    </td>
+                    <td>
+                        @Html.Label("Мать")
+                    </td>
+                </tr>
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.FemaleName, "ShowProfile", new {femaleId = item.Id})
+                    </td>
+                    <td>
+                        @item.DateOfBirth.Date.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.CageName
+                    </td>
+                    <td>
+                        @item.FatherName1
+                    </td>
+                    <td>
+                        @item.FatherName2
+                    </td>
+                    <td>
+                        @item.MotherName
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@model Entities.MedicalServices
+
+@{
+    ViewBag.Title = "Медицинские препараты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Медицинские препараты</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalServiceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "UpdateMedicalService", new { medicalServiceId = Model.Id }) |
+    @Html.ActionLink("Удалить", "DeleteMedicalService", new { medicalServiceId = Model.Id },
+    new { onclick = "return confirm('Вы уверены, что хотите удалить выбранного медицинский препарат?') ? true : false;" }) |
+    @Html.ActionLink("Назад", "ShowMedicalServices")
+</p>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="519c239ab1fd4958b8aef8b1bc012e4d" Name="Diagram1">
+        <EntityTypeShape EntityType="RabbitsDBModel.Cages" Width="1.5" PointX="1.5" PointY="2.25" />
+        <EntityTypeShape EntityType="RabbitsDBModel.ChildBirth" Width="1.5" PointX="6" PointY="4.125" />
+        <EntityTypeShape EntityType="RabbitsDBModel.Females" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RabbitsDBModel.Males" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="RabbitsDBModel.MedicalServiceRabbit" Width="1.5" PointX="8.25" PointY="5" />
+        <EntityTypeShape EntityType="RabbitsDBModel.MedicalServices" Width="1.5" PointX="6" PointY="1.125" />
+        <EntityTypeShape EntityType="RabbitsDBModel.Parrents" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="RabbitsDBModel.Results" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="RabbitsDBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="8" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Females_Cages" />
+        <AssociationConnector Association="RabbitsDBModel.FK_MedicalServiceRabbit_Profile" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Profile_Parrents1" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Profile_Parrents2" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Profile_Rabbits" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Parrents_Females" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Parrents_Males" />
+        <AssociationConnector Association="RabbitsDBModel.FK_Parrents_Males1" />
+        <AssociationConnector Association="RabbitsDBModel.FK_MedicalServiceRabbit_MedicalServices" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

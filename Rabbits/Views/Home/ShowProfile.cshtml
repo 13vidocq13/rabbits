@@ -1,0 +1,43 @@
+﻿@using Entities
+@model Cages
+
+@{
+    ViewBag.Title = "Профиль";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Профиль</h2>
+
+<div>
+    <h4>Клетка</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+@Html.ActionLink("Редактировать", "UpdateCage", new { cageId = Model.Id })
+<div>
+    <h4>Состав</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in (IList<Females>)ViewBag.RabbitsInCage)
+        {
+            <dt>
+                @Html.Label("Кличка")
+            </dt>
+            <dd>
+                @Html.Label(item.Name)
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать состав", "UpdateRabbitsInCage", new { cageId = Model.Id }) |
+    @Html.ActionLink("Назад", "ShowCages")
+</p>

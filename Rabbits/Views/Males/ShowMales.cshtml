@@ -1,0 +1,38 @@
+﻿@model IList<Entities.Males>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Самцы</title>
+</head>
+<body>
+    <h2>Самцы</h2>
+    <div>
+        <h4>@Html.ActionLink("Добавить самца", "AddMale")</h4>
+        <hr />
+        <table>
+            <tr style="font-weight: bold">
+                <td>Кличка</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "ShowProfile", new { maleId = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br />
+    <p>
+        @Html.ActionLink("На главную", "Index", "Home")
+    </p>
+</body>
+</html>

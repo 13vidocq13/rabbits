@@ -1,0 +1,33 @@
+﻿@model IList<Entities.Females>
+
+@{
+    ViewBag.Title = "Управление клеткой";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Управление клеткой</h2>
+
+<div>
+    <h4>Управление клеткой</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <dt>
+                @Html.Label("Кличка")
+            </dt>
+
+            <dd>
+                @Html.ActionLink(item.Name, "ShowProfile", "FemalesController", new {femaleId = item.Id})
+            </dd>
+
+            <dd>
+                @Html.ActionLink("Удалить кроля из данной клетки", "DeleteRabbitFormCage", new { femaleId = item.Id, cageId = item.CageId })
+            </dd>
+        }
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

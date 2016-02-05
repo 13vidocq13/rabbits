@@ -1,0 +1,93 @@
+﻿@model IList<Entities.Profiles>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowProfile</title>
+</head>
+<body>
+    <div>
+        <h4>@Html.ActionLink("Add profile", "AddProfile")</h4>
+        <hr/>
+        <table>
+            <tr style="font-weight: bold">
+                <td>
+                    Номер клетки
+                </td>
+                <td>
+                    Кличка
+                </td>
+                <td>
+                    Первый самец
+                </td>
+                <td>
+                    Дата
+                </td>
+                <td>
+                    Второй самец
+                </td>
+                <td>
+                    Дата 2го
+                </td>
+                <td>
+                    Предполагаемая дата родов
+                </td>
+                <td>
+                    Дата родов
+                </td>
+                <td>
+                    Результат
+                </td>
+                <td>
+                    Заметки
+                </td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.CageNumber
+                    </td>
+                    <td>
+                        @item.RabbitId
+                    </td>
+                    <td>
+                        @item.ParrentId1
+                    </td>
+                    <td>
+                        @item.StartDate1
+                    </td>
+                    <td>
+                        @item.ParrentId2
+                    </td>
+                    <td>
+                        @item.StartDate2
+                    </td>
+                    <td>
+                        @item.ExpectBirthday
+                    </td>
+                    <td>
+                        @item.Birthday
+                    </td>
+                    <td>
+                        @item.ResultId
+                    </td>
+                    <td>
+                        @item.Notes
+                    </td>
+                </tr>
+            }
+        </table>
+        
+    </div>
+    <p>
+        @*@Html.ActionLink("Back", "ShowProfile")*@
+    </p>
+</body>
+</html>

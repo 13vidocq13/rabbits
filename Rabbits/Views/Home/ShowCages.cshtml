@@ -1,0 +1,22 @@
+﻿@model IList<Entities.Cages>
+
+@{
+    ViewBag.Title = "Клетки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Клетки</h2>
+
+<div>
+    <h4>@Html.ActionLink("Добавить клетку", "AddCage")</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <dd>
+                @Html.ActionLink(item.Name, "ShowProfile", new {cageId = item.Id})
+            </dd>
+        }
+    </dl>
+</div>
+

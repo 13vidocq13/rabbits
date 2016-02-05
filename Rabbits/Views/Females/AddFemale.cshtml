@@ -1,0 +1,100 @@
+﻿@model BusonessLogic.Help.Types.FemaleParrentsMale
+
+@{
+    ViewBag.Title = "Добавить самку";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Добавить самку</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <script>
+
+        $(function () {
+
+            $("#datepicker").datepicker();
+
+        });
+
+    </script>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Добавить самку</h4>
+            <input type="text" id="datepicker" />
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Кличка", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FemaleName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FemaleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Дата рождения", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Клетка", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ddlCages", (IEnumerable<SelectListItem>)ViewData["cagesDdl"])
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Отец1", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ddlMale1", (IEnumerable<SelectListItem>)ViewData["malesDdl"])
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Отец2", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ddlMale2", (IEnumerable<SelectListItem>)ViewData["malesDdl"])
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Мать", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ddlFemale", (IEnumerable<SelectListItem>)ViewData["femalesDdl"])
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Добавить" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Назад", "ShowFemales")
+    </div>
+</body>
+</html>
