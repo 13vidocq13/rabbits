@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Mvc;
 using BusonessLogic;
 using BusonessLogic.Help.Types;
-using Entities;
 
 namespace Rabbits.Controllers
 {

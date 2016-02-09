@@ -17,39 +17,38 @@
         <h4>@Html.ActionLink("Добавить детей", "AddChildBirth")</h4>
         <hr/>
         @*Фильтр @Html.DropDownList()*@
-        <table>
+        <table style="border-collapse: collapse; border: 1px solid black;">
             @if (Model.Count != 0)
             {
-
-                <tr style="font-weight: bold">
-                    <td>
+                <tr style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Самка")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Клетка")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Самец1")
                     </td>
-                    <td>
-                        @Html.Label("Дата 1го контакта")
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                        @Html.Label("1й контакт")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Самец2")
                     </td>
-                    <td>
-                        @Html.Label("Дата 2го контакта")
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                        @Html.Label("2й контакт")
                     </td>
-                    <td>
-                        @Html.Label("Предположительная дата рождения")
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                        @Html.Label("Пр. дата рождения")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Дата рождения")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Результат")
                     </td>
-                    <td>
+                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                         @Html.Label("Заметки")
                     </td>
                 </tr>
@@ -57,34 +56,34 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @Html.ActionLink(item.FemaleName, "ShowProfile", new { childBirthId = item.Id })
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.CageNumber
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.MaleName1
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.StartDate1.ToShortDateString()
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.MaleName2
                     </td>
-                    <td>
-                        @item.StartDate2
+                    <td style="border-collapse: collapse; border: 1px solid black;">
+                        @(item.StartDate2?.ToShortDateString())
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.ExpectBirthday.ToShortDateString()
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.Birthday.ToShortDateString()
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.ResultName
                     </td>
-                    <td>
+                    <td style="border-collapse: collapse; border: 1px solid black;">
                         @item.Notes
                     </td>
                 </tr>
