@@ -45,14 +45,18 @@ namespace Rabbits.Controllers
         {
             try
             {
-                if (formCollection == null)
-                    return RedirectToAction(ErrorAction,
-                        new {exception = new InvalidOperationException(ErrorLists)});
+                if (ModelState.IsValid)
+                {
+                    if (formCollection == null)
+                        return RedirectToAction(ErrorAction,
+                            new {exception = new InvalidOperationException(ErrorLists)});
 
-                //will add normal checks)
-                BindReceivedData(female, formCollection);
-                new FemalesManager().AddFemale(female);
+                    //will add normal checks)
+                    BindReceivedData(female, formCollection);
+                    new FemalesManager().AddFemale(female);
 
+                    return RedirectToAction(ShowFemalesAction);
+                }
                 return RedirectToAction(ShowFemalesAction);
             }
             catch (InvalidOperationException exception)
@@ -78,13 +82,16 @@ namespace Rabbits.Controllers
         {
             try
             {
-                if (formCollection == null)
-                    return RedirectToAction(ErrorAction,
-                        new { exception = new InvalidOperationException(ErrorLists)});
+                if (ModelState.IsValid)
+                {
+                    if (formCollection == null)
+                        return RedirectToAction(ErrorAction,
+                            new { exception = new InvalidOperationException(ErrorLists) });
 
-                //will add normal checks)
-                BindReceivedData(female, formCollection);
-                new FemalesManager().UpdateFemale(female);
+                    //will add normal checks)
+                    BindReceivedData(female, formCollection);
+                    new FemalesManager().UpdateFemale(female);
+                }
 
                 return RedirectToAction(ShowFemalesAction);
             }

@@ -32,7 +32,8 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new ResultsManager().AddResult(result);
+                if (ModelState.IsValid)
+                    new ResultsManager().AddResult(result);
 
                 return RedirectToAction(ActionShowResults);
             }
@@ -54,7 +55,8 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new ResultsManager().UpdateResult(result);
+                if (ModelState.IsValid)
+                    new ResultsManager().UpdateResult(result);
 
                 return RedirectToAction(ActionShowResults);
             }

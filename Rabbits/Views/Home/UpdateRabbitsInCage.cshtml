@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Управление клеткой</h2>
-
 <div>
-    <h4>Управление клеткой</h4>
+    <h4>Управление кролями в клетке</h4>
     <hr />
     <dl class="dl-horizontal">
         @foreach (var item in Model)
@@ -28,6 +26,5 @@
     </dl>
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад", "ShowCages")
 </p>

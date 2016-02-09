@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>UpdateFemale</title>
+    <title>Редактировать самку</title>
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
@@ -21,7 +21,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>FemaleParrentsMale</h4>
+            <h4>Редактировать самку</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)

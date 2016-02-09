@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Entities
 {
-    using System;
     using System.Collections.Generic;
-    
+
     public partial class Cages
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace Entities
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage = "Поле не может быть пустым")]
+        [StringLength(3, ErrorMessage="Название клетки не может содержать более 3х символов")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -52,7 +52,9 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new CagesManager().AddCage(cage);
+                if (ModelState.IsValid)
+                    new CagesManager().AddCage(cage);
+                
 
                 return RedirectToAction(ActionShowCages);
             }
@@ -72,8 +74,9 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new CagesManager().UpdateCage(cage);
-
+                if (ModelState.IsValid)
+                    new CagesManager().UpdateCage(cage);
+            
                 return RedirectToAction(ActionShowCages);
             }
             catch (InvalidOperationException exception)

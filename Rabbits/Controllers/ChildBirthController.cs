@@ -39,9 +39,13 @@ namespace Rabbits.Controllers
         {
             try
             {
-                AddDataFromDdls(childBirth, formCollection);
+                if (ModelState.IsValid)
+                {
+                    AddDataFromDdls(childBirth, formCollection);
 
-                new ChildBirthManager().AddChildBirth(childBirth);
+                    new ChildBirthManager().AddChildBirth(childBirth);
+                }
+
                 return RedirectToAction(ShowChildBirthAction);
             }
             catch (InvalidOperationException exception)
@@ -66,9 +70,13 @@ namespace Rabbits.Controllers
         {
             try
             {
-                AddDataFromDdls(childBirth, formCollection);
+                if (ModelState.IsValid)
+                {
+                    AddDataFromDdls(childBirth, formCollection);
 
-                new ChildBirthManager().UpdateChildBirth(childBirth);
+                    new ChildBirthManager().UpdateChildBirth(childBirth);
+                }
+
                 return RedirectToAction(ShowChildBirthAction);
             }
             catch (InvalidOperationException exception)

@@ -32,7 +32,11 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new MalesManager().AddMale(male);
+                if (ModelState.IsValid)
+                {
+                    new MalesManager().AddMale(male);
+                }
+
                 return RedirectToAction(ShowMalesAction);
             }
             catch (InvalidOperationException exception)
@@ -51,7 +55,11 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new MalesManager().UpdateMale(male);
+                if (ModelState.IsValid)
+                {
+                    new MalesManager().UpdateMale(male);
+                }
+
                 return RedirectToAction(ShowMalesAction);
             }
             catch (InvalidOperationException exception)

@@ -31,7 +31,10 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new MedicalServicesManager().AddMedicalService(medicalService);
+                if (ModelState.IsValid)
+                    new MedicalServicesManager().AddMedicalService(medicalService);
+                
+
                 return RedirectToAction(ShowMedicalServicesAction);
             }
             catch (InvalidOperationException exception)
@@ -50,7 +53,9 @@ namespace Rabbits.Controllers
         {
             try
             {
-                new MedicalServicesManager().UpdateMedicalService(medicalService);
+                if (ModelState.IsValid)
+                    new MedicalServicesManager().UpdateMedicalService(medicalService);
+
                 return RedirectToAction(ShowMedicalServicesAction);
             }
             catch (InvalidOperationException exception)

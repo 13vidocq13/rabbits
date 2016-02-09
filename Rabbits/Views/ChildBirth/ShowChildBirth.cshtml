@@ -26,7 +26,7 @@
                         @Html.Label("Самка")
                     </td>
                     <td>
-                        @Html.Label("Номер клетки")
+                        @Html.Label("Клетка")
                     </td>
                     <td>
                         @Html.Label("Самец1")
@@ -67,7 +67,7 @@
                         @item.MaleName1
                     </td>
                     <td>
-                        @item.StartDate1
+                        @item.StartDate1.ToShortDateString()
                     </td>
                     <td>
                         @item.MaleName2
@@ -76,10 +76,10 @@
                         @item.StartDate2
                     </td>
                     <td>
-                        @item.ExpectBirthday
+                        @item.ExpectBirthday.ToShortDateString()
                     </td>
                     <td>
-                        @item.Birthday
+                        @item.Birthday.ToShortDateString()
                     </td>
                     <td>
                         @item.ResultName
