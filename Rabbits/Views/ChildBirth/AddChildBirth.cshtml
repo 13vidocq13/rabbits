@@ -50,8 +50,10 @@
             <div class="form-group">
                 @Html.Label("Дата 1го контакта", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StartDate1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.StartDate1, "", new { @class = "text-danger" })
+                    <div id="firstcontact">
+                        @Html.EditorFor(model => model.StartDate1, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.StartDate1, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -65,24 +67,30 @@
             <div class="form-group">
                 @Html.Label("Дата 2го контакта", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StartDate2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.StartDate2, "", new { @class = "text-danger" })
+                    <div id="secondcontact">
+                        @Html.EditorFor(model => model.StartDate2, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.StartDate2, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("Предположительная дата рождения", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ExpectBirthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ExpectBirthday, "", new { @class = "text-danger" })
+                    <div id="expectbirthday">
+                        @Html.EditorFor(model => model.ExpectBirthday, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.ExpectBirthday, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("Дата рождения", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    <div id="birthday">
+                        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -112,5 +120,42 @@
     <div>
         @Html.ActionLink("Назад", "ShowChildBirth")
     </div>
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+
+    <script type="text/javascript">
+        $('#firstcontact').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#secondcontact').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#expectbirthday').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#birthday').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
 </body>
 </html>

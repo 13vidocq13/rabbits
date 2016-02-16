@@ -59,12 +59,12 @@ namespace Data
         {
             using (var context = new RabbitsDBEntities())
             {
-                if (IsNameExist(female.Name, context))
-                    throw new InvalidOperationException(AlreadyExist);
-
                 var result = context.Females.FirstOrDefault(x => x.Id == female.Id);
                 if (result == null)
                     throw new InvalidOperationException(DoesNotExist);
+
+                if (result.Name != female.Name && IsNameExist(female.Name, context))
+                    throw new InvalidOperationException(AlreadyExist);
 
                 result.Name = female.Name;
                 result.DateOfBirth = female.DateOfBirth;

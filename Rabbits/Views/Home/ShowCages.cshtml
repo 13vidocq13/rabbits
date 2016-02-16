@@ -10,7 +10,7 @@
 <div>
     @Html.ActionLink("Добавить", "AddCage")
     <hr />
-    <dl class="dl-horizontal">
+    <dl>
         @foreach (var item in Model)
         {
             <dd>
@@ -18,5 +18,8 @@
             </dd>
         }
     </dl>
+    <p>
+        @Html.ActionLink("На главную", "Index", "Home")
+    </p>
 </div>
 

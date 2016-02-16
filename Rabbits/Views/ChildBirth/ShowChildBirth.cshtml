@@ -13,85 +13,87 @@
     <title>Дети</title>
 </head>
 <body>
-    <div>
-        <h4>@Html.ActionLink("Добавить детей", "AddChildBirth")</h4>
-        <hr/>
-        @*Фильтр @Html.DropDownList()*@
-        <table style="border-collapse: collapse; border: 1px solid black;">
-            @if (Model.Count != 0)
-            {
-                <tr style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Самка")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Клетка")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Самец1")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("1й контакт")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Самец2")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("2й контакт")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Пр. дата рождения")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Дата рождения")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Результат")
-                    </td>
-                    <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                        @Html.Label("Заметки")
-                    </td>
-                </tr>
-            }
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @Html.ActionLink(item.FemaleName, "ShowProfile", new { childBirthId = item.Id })
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.CageNumber
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.MaleName1
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.StartDate1.ToShortDateString()
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.MaleName2
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @(item.StartDate2?.ToShortDateString())
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.ExpectBirthday.ToShortDateString()
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.Birthday.ToShortDateString()
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.ResultName
-                    </td>
-                    <td style="border-collapse: collapse; border: 1px solid black;">
-                        @item.Notes
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
+<div>
+    <h2>Дети</h2>
+    @Html.ActionLink("Добавить", "AddChildBirth")
+    <hr/>
+    @*Фильтр @Html.DropDownList()*@
+    <table style="border-collapse: collapse; border: 1px solid black;">
+        @if (Model.Count != 0)
+        {
+            <tr style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Самка")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Клетка")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Самец1")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("1й контакт")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Самец2")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("2й контакт")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Пр. дата рождения")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Дата рождения")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Результат")
+                </td>
+                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
+                    @Html.Label("Заметки")
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @Html.ActionLink(item.FemaleName, "ShowProfile", new {childBirthId = item.Id})
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.CageNumber
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.MaleName1
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.StartDate1.ToShortDateString()
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.MaleName2
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @(item.StartDate2?.ToShortDateString())
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.ExpectBirthday.ToShortDateString()
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.Birthday.ToShortDateString()
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.ResultName
+                </td>
+                <td style="border-collapse: collapse; border: 1px solid black;">
+                    @item.Notes
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+    <br/>
     <p>
-        @Html.ActionLink("Назад", "ShowChildBirth")
+        @Html.ActionLink("На главную", "Index", "Home")
     </p>
 </body>
 </html>

@@ -73,7 +73,7 @@ namespace Rabbits.Controllers
             ViewData["femalesDdl"] = BindFemalesList(female.MotherId);
             ViewData["cagesDdl"] = BindCagesList(female.CageId);
 
-            return View(new FemalesManager().GetFemale(femaleId));
+            return View(female);
         }
 
         [HttpPost]
@@ -121,15 +121,20 @@ namespace Rabbits.Controllers
 
         static void BindReceivedData(FemaleParrentsMale female, FormCollection formCollection)
         {
+            int male2R;
             var male1 = formCollection["ddlMale1"];
             var male2 = formCollection["ddlMale2"];
             var femaleId = formCollection["ddlFemale"];
             var cageId = formCollection["ddlCages"];
 
             female.FatherId1 = int.Parse(male1);
-            female.FatherId2 = int.Parse(male2);
             female.MotherId = int.Parse(femaleId);
             female.CageId = int.Parse(cageId);
+
+            if (int.TryParse(male2, out male2R))
+                female.FatherId2 = male2R;
+            else
+                female.FatherId2 = null;
         }
 
         static IList<SelectListItem> BindMalesList(int? selectedId)

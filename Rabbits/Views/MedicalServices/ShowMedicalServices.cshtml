@@ -8,25 +8,17 @@
 <h2>Медицинские препараты</h2>
 
 <div>
-    <h4>@Html.ActionLink("Добавить", "AddMedicalService", "MedicalServices")</h4>
-    <hr/>
-    <table>
-        <thead>
-            <tr style="font-weight: bold">
-                <td>Название</td>
-            </tr>
-        </thead>
+    @Html.ActionLink("Добавить", "AddMedicalService", "MedicalServices")
+    <hr />
+    <dl>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.MedicalServiceName, "ShowProfile", new {medicalServiceId = item.Id})
-                </td>
-            </tr>
+            <dd>
+                @Html.ActionLink(item.MedicalServiceName, "ShowProfile", new { medicalServiceId = item.Id })
+            </dd>
         }
-    </table>
+    </dl>
 </div>
-<br />
 <p>
     @Html.ActionLink("На главную", "Index", "Home")
 </p>

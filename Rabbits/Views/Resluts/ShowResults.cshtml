@@ -12,21 +12,19 @@
     <title>Результаты</title>
 </head>
 <body>
-    <h4>Результаты</h4>
+    <h2>Результаты</h2>
     <div>
-        <h4>@Html.ActionLink("Добавить результат", "AddResult")</h4>
-
-        <div style="font-weight: bold">
-            Название
-        </div>
-
-        @foreach (var item in Model)
-        {
-            @Html.ActionLink(item.Name, "ShowProfile", new { resultId = item.Id })
-            <br />
-        }
+        @Html.ActionLink("Добавить", "AddResult")
+        <hr />
+        <dl>
+            @foreach (var item in Model)
+            {
+                <dd>
+                    @Html.ActionLink(item.Name, "ShowProfile", new { resultId = item.Id })
+                </dd>
+            }
+        </dl>
     </div>
-    <br />
     <p>
         @Html.ActionLink("На главную", "Index", "Home")
     </p>

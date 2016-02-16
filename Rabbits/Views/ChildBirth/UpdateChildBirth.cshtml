@@ -22,10 +22,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Редактировать детей</h4>
+            <h4>Добавить детей</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Id)
             <div class="form-group">
                 @Html.Label("Самка", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -49,10 +48,12 @@
             </div>
 
             <div class="form-group">
-                @Html.Label("Дата 1го спаривания", new { @class = "control-label col-md-2" })
+                @Html.Label("Дата 1го контакта", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StartDate1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.StartDate1, "", new { @class = "text-danger" })
+                    <div id="firstcontact">
+                        @Html.EditorFor(model => model.StartDate1, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.StartDate1, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -66,24 +67,30 @@
             <div class="form-group">
                 @Html.Label("Дата 2го контакта", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StartDate2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.StartDate2, "", new { @class = "text-danger" })
+                    <div id="secondcontact">
+                        @Html.EditorFor(model => model.StartDate2, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.StartDate2, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("Предположительная дата рождения", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ExpectBirthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ExpectBirthday, "", new { @class = "text-danger" })
+                    <div id="expectbirthday">
+                        @Html.EditorFor(model => model.ExpectBirthday, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.ExpectBirthday, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("Дата рождения", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    <div id="birthday">
+                        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "add-on", @PlaceHolder = "введите дату" } })
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -104,14 +111,52 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Сохранить" class="btn btn-default" onclick="return confirm('Вы уверены, что хотите сохранить изменения?') ? true : false;" />
+                    <input type="submit" value="Добавить" class="btn btn-default" onclick="return confirm('Вы уверены, что хотите сохранить изменения?') ? true : false;" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Назад", "ShowChildBirth")
+        @Html.ActionLink("Назад", "ShowProfile", new { childBirthId = @Model.Id })
     </div>
+
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+
+    <script type="text/javascript">
+        $('#firstcontact').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#secondcontact').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#expectbirthday').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
+    <script type="text/javascript">
+        $('#birthday').datetimepicker({
+            format: 'dd-MM-yyyy',
+            pickTime: false
+        });
+    </script>
 </body>
 </html>

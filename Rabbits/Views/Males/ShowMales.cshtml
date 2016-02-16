@@ -16,21 +16,15 @@
     <div>
         @Html.ActionLink("Добавить", "AddMale")
         <hr />
-        <table>
-            <tr style="font-weight: bold">
-                <td>Кличка</td>
-            </tr>
+        <dl>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
+                <dd>
                         @Html.ActionLink(item.Name, "ShowProfile", new { maleId = item.Id })
-                    </td>
-                </tr>
+                </dd>
             }
-        </table>
+        </dl>
     </div>
-    <br />
     <p>
         @Html.ActionLink("На главную", "Index", "Home")
     </p>
