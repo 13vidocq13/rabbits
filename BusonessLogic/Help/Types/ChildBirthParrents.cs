@@ -10,17 +10,16 @@ namespace BusonessLogic.Help.Types
         public int MaleId1 { get; set; }
         public int? MaleId2 { get; set; }
         public int ResultId { get; set; }
-        public int CageNumber { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public DateTime StartDate1 { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public DateTime? StartDate2 { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public DateTime ExpectBirthday { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public DateTime Birthday { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]

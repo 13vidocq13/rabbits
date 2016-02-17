@@ -26,9 +26,6 @@
                     @Html.Label("Самка")
                 </td>
                 <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
-                    @Html.Label("Клетка")
-                </td>
-                <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
                     @Html.Label("Самец1")
                 </td>
                 <td style="font-weight: bold; border-collapse: collapse; border: 1px solid black;">
@@ -61,31 +58,28 @@
                     @Html.ActionLink(item.FemaleName, "ShowProfile", new {childBirthId = item.Id})
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.CageNumber
+                    @Html.DisplayFor(x => item.MaleName1)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.MaleName1
+                    @Html.DisplayFor(x => item.StartDate1)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.StartDate1.ToShortDateString()
+                    @Html.DisplayFor(x => item.MaleName2)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.MaleName2
+                    @Html.DisplayFor(x => item.StartDate2)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @(item.StartDate2?.ToShortDateString())
+                    @Html.DisplayFor(x => item.ExpectBirthday)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.ExpectBirthday.ToShortDateString()
+                    @Html.DisplayFor(x => item.Birthday)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.Birthday.ToShortDateString()
+                    @Html.DisplayFor(x => item.ResultName)
                 </td>
                 <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.ResultName
-                </td>
-                <td style="border-collapse: collapse; border: 1px solid black;">
-                    @item.Notes
+                    @Html.DisplayFor(x => item.Notes)
                 </td>
             </tr>
         }

@@ -12,6 +12,7 @@ namespace Rabbits.Controllers
         private const string ShowChildBirthAction = "ShowChildBirth";
         private const string ErrorAction = "Error";
         private const string ErrorLists = "Обнаружена ошибка со списками";
+        private const string None = "Нет";
 
         // GET: Profiles
         public ActionResult ShowChildBirth()
@@ -124,12 +125,24 @@ namespace Rabbits.Controllers
 
         static IList<SelectListItem> BindMalesList(int? selectedId)
         {
-            return new MalesManager().GetMales().Select(item => new SelectListItem
+            var males = new MalesManager().GetMales();
+
+            IList<SelectListItem> result = new List<SelectListItem>
             {
-                Text = item.Name,
-                Value = item.Id.ToString(),
-                Selected = item.Id == selectedId
-            }).ToList();
+                new SelectListItem {Text = None, Selected = selectedId == null, Value = null}
+            };
+
+            foreach (var item in males)
+            {
+                result.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString(),
+                    Selected = item.Id == selectedId
+                });
+            }
+
+            return result;
         }
 
         static IList<SelectListItem> BindFemalesList(int? selectedId)
@@ -148,12 +161,24 @@ namespace Rabbits.Controllers
 
         static IList<SelectListItem> BindResultsList(int? selectedId)
         {
-            return new ResultsManager().GetResults().Select(item => new SelectListItem
+            var results = new ResultsManager().GetResults();
+
+            IList<SelectListItem> result = new List<SelectListItem>
             {
-                Text = item.Name,
-                Value = item.Id.ToString(),
-                Selected = item.Id == selectedId
-            }).ToList();
+                new SelectListItem {Text = None, Selected = selectedId == null, Value = null}
+            };
+
+            foreach (var item in results)
+            {
+                result.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString(),
+                    Selected = item.Id == selectedId
+                });
+            }
+
+            return result;
         }
     }
 }

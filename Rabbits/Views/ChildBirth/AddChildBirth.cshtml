@@ -33,14 +33,6 @@
             </div>
 
             <div class="form-group">
-                @Html.Label("Номер клетки", new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CageNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CageNumber, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
                 @Html.Label("Самец1", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("ddlMale1", (IEnumerable<SelectListItem>)ViewData["malesDdl1"])
