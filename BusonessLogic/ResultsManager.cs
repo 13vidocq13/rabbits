@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Data;
 using Entities;
 
@@ -9,6 +10,11 @@ namespace BusonessLogic
         public IList<Results> GetResults()
         {
             return new ResultsRepository().GetResults();
+        }
+
+        public IList<Results> GetResults(string[] resultsIds)
+        {
+            return resultsIds.Select(item => new ResultsRepository().GetResult(int.Parse(item))).ToList();
         }
 
         public Results GetResult(int resultId)

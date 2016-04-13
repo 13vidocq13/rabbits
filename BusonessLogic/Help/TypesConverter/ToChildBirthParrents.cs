@@ -17,22 +17,13 @@ namespace BusonessLogic.Help.TypesConverter
         {
             return new ChildBirthParrents
             {
-                Id = childBirth.Id,
-                Birthday = childBirth.Birthday,
-                ExpectBirthday = childBirth.ExpectBirthday,
-                FemaleId = childBirth.FemaleId,
-                MaleId1 = childBirth.MaleId1,
-                MaleId2 = childBirth.MaleId2,
-                Notes = childBirth.Notes,
-                ResultId = childBirth.ResultId,
-                StartDate1 = childBirth.StartDate1,
-                StartDate2 = childBirth.StartDate2,
-                FemaleName = new FemalesRepository().GetFemale(childBirth.FemaleId).Name,
-                MaleName1 = new MalesRepository().GetMale(childBirth.MaleId1).Name,
-                MaleName2 = childBirth.MaleId2 != null
-                    ? new MalesRepository().GetMale((int) childBirth.MaleId2).Name
+                Female = new FemalesRepository().GetFemale(childBirth.FemaleId),
+                Male1 = new MalesRepository().GetMale(childBirth.MaleId1),
+                Male2 = childBirth.MaleId2 != null
+                    ? new MalesRepository().GetMale((int) childBirth.MaleId2)
                     : null,
-                ResultName = new ResultsRepository().GetResult(childBirth.ResultId).Name
+                Result = new ResultsRepository().GetResult(childBirth.ResultId),
+                ChildBirth = childBirth
             };
         }
     }

@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Entities
 {
     using System;
@@ -26,7 +24,6 @@ namespace Entities
         }
     
         public int Id { get; set; }
-        [Required(ErrorMessage = "Поле не может быть пустым")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

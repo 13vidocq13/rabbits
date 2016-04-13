@@ -344,6 +344,12 @@
     <Content Include="Views\Home\UpdateCage.cshtml" />
     <Content Include="Views\Home\UpdateRabbitsInCage.cshtml" />
     <Content Include="Views\Home\AddCage.cshtml" />
+    <Content Include="Views\ChildBirth\Filter.cshtml" />
+    <Content Include="Views\ChildBirth\Parts\Filters.cshtml" />
+    <Content Include="Views\ChildBirth\Parts\Filters\ByFemaleName.cshtml" />
+    <Content Include="Views\ChildBirth\Parts\Filters\ByMaleName.cshtml" />
+    <Content Include="Views\ChildBirth\Parts\Filters\ByResults.cshtml" />
+    <Content Include="Views\ChildBirth\Parts\Filters\ByDates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +367,10 @@
     <ProjectReference Include="..\BusonessLogic\BusonessLogic.csproj">
       <Project>{f2865e95-c450-41ee-acef-a0cd7607ddca}</Project>
       <Name>BusonessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{f7bed5d3-93f8-495c-abb7-d323915d37cd}</Project>
+      <Name>Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{19d9eb35-4cde-4721-b01c-701b299f8dab}</Project>

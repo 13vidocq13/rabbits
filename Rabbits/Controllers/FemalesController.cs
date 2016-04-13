@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BusonessLogic;
-using BusonessLogic.Help.Types;
+using Contract;
 
 namespace Rabbits.Controllers
 {

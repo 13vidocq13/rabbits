@@ -1,0 +1,9 @@
+﻿<div class="form-group">
+    @Html.Label("фильтр по результатам") <br/>
+    @foreach (var item in (IList<Entities.Results>)ViewBag.Results)
+    {
+        <input type="checkbox" id="@item.Id" name="ResultsIds" value="@item.Id" />
+        <label>@item.Name</label>
+        <br />
+    }
+</div>

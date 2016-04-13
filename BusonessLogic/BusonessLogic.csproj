@@ -57,8 +57,6 @@
     <Compile Include="Help\TypesConverter\ToFemales.cs" />
     <Compile Include="Help\TypesConverter\ToParrents.cs" />
     <Compile Include="Help\Types\ChildBirthParrents.cs" />
-    <Compile Include="Help\Types\EFilter.cs" />
-    <Compile Include="Help\Types\FemaleParrentsMale.cs" />
     <Compile Include="MedicalServicesManager.cs" />
     <Compile Include="MalesManager.cs" />
     <Compile Include="ChildBirthManager.cs" />

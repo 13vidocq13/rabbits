@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using BusonessLogic.Help.Types;
+using BusonessLogic.Help.TypesConverter;
+using Contract;
 using Data;
+using Entities;
 
 namespace BusonessLogic
 {
@@ -8,25 +11,29 @@ namespace BusonessLogic
     {
         public IList<ChildBirthParrents> GetChildBirth()
         {
-            var childBirthList = new ChildBirthRepository().GetChildBirth();
+            var childBirth = new ChildBirthRepository().GetChildBirth();
 
-            return new Help.TypesConverter.ToChildBirthParrents().Convert(childBirthList);
+            return new ToChildBirthParrents().Convert(childBirth);
         }
 
-        public ChildBirthParrents GetChildBirth(int childBirthId)
+        public IList<ChildBirth> GetChildBirth(Filters filter)
         {
-            var childBirth = new ChildBirthRepository().GetChildBirth(childBirthId);
-            return new Help.TypesConverter.ToChildBirthParrents().Convert(childBirth);
+            return new ChildBirthRepository().GetChildBirth(filter);
         }
 
-        public void AddChildBirth(ChildBirthParrents childBirthParrents)
+        public ChildBirth GetChildBirth(int childBirthId)
         {
-            new ChildBirthRepository().AddChildBirth(new Help.TypesConverter.ToChildBirth().Convert(childBirthParrents));
+            return new ChildBirthRepository().GetChildBirth(childBirthId);
         }
 
-        public void UpdateChildBirth(ChildBirthParrents childBirthParrents)
+        public void AddChildBirth(ChildBirth childBirthParrents)
         {
-            new ChildBirthRepository().UpdateChildBirth(new Help.TypesConverter.ToChildBirth().Convert(childBirthParrents));
+            new ChildBirthRepository().AddChildBirth(childBirthParrents);
+        }
+
+        public void UpdateChildBirth(ChildBirth childBirthParrents)
+        {
+            new ChildBirthRepository().UpdateChildBirth(childBirthParrents);
         }
 
         public void DeleteChildBirth(int childBirthId)

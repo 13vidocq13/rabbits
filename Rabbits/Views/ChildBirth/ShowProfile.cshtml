@@ -1,4 +1,4 @@
-﻿@model BusonessLogic.Help.Types.ChildBirthParrents
+﻿@model Entities.ChildBirth
 
 @{
     ViewBag.Title = "Дети";
@@ -14,7 +14,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FemaleName)
+            @Html.DisplayFor(model => model.Females.Name)
         </dd>
 
         <dt>
@@ -22,7 +22,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MaleName1)
+            @Html.DisplayFor(model => model.Male1.Name)
         </dd>
 
         <dt>
@@ -38,7 +38,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MaleName2)
+            @Html.DisplayFor(model => model.Male2.Name)
         </dd>
 
         <dt>
@@ -70,7 +70,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ResultName)
+            @Html.DisplayFor(model => model.Result.Name)
         </dd>
 
         <dt>

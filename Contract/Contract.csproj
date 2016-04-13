@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FemaleParrentsMale.cs" />
+    <Compile Include="Filters.cs" />
     <Compile Include="ICagesRepository.cs" />
     <Compile Include="IMedicalServiceRabbitRepository.cs" />
     <Compile Include="IMedicalServicesRepository.cs" />

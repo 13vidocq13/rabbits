@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusonessLogic.Help.Types
+namespace Contract
 {
     public class FemaleParrentsMale
     {

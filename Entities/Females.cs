@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Entities
 {
     using System;
@@ -25,8 +23,6 @@ namespace Entities
     
         public int Id { get; set; }
         public string Name { get; set; }
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public System.DateTime DateOfBirth { get; set; }
         public Nullable<int> CageId { get; set; }
     

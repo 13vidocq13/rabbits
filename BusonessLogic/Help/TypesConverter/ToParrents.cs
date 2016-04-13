@@ -1,4 +1,4 @@
-﻿using BusonessLogic.Help.Types;
+﻿using Contract;
 using Entities;
 
 namespace BusonessLogic.Help.TypesConverter

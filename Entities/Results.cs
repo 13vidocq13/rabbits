@@ -7,14 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace Entities
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Results
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Поле не может быть пустым")]
         public string Name { get; set; }
+        public bool IsSelected { get; set; }
+        public string ResultIds { get; set; }
     }
 }

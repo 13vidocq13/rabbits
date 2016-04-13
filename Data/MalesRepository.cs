@@ -27,6 +27,14 @@ namespace Data
             }
         }
 
+        public Males GetMale(string maleName)
+        {
+            using (var context = new RabbitsDBEntities())
+            {
+                return context.Males.FirstOrDefault(x => x.Name == maleName);
+            }
+        }
+
         public void AddMale(Males male)
         {
             using (var context = new RabbitsDBEntities())

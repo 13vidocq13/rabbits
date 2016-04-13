@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BusonessLogic.Help.Types;
+using Contract;
 using Data;
 using Entities;
 

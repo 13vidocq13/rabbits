@@ -1,0 +1,53 @@
+﻿@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<a href="#" onclick="ShowHideElement()" id="showhidefilters">Показать фильтры</a>
+
+<div id="filters" style="display: none">
+    <h2>Фильтрация</h2>
+    <hr />
+    @Html.Partial("Parts/Filters/ByFemaleName")
+    @Html.Partial("Parts/Filters/ByMaleName")
+    <hr />
+    @Html.Partial("Parts/Filters/ByResults")
+    <hr />
+    @Html.Partial("Parts/Filters/ByDates")
+
+    <a href="#" onclick="filter()">Применить</a>
+</div>
+
+<script type="text/javascript" language="javascript">
+    function ShowHideElement() {
+        var filterDiv = $('#filters');
+        var currentLink = $('#showhidefilters');
+
+        if (filterDiv.is(':visible')) {
+            currentLink.text('Показать фильтры');
+            filterDiv.hide('slow');
+        } else {
+            currentLink.text('Скрыть фильтры');
+            filterDiv.show('slow');
+        }
+    }
+
+    function filter() {
+        var actiounurl = {
+            filter: '@Url.Action("Filter", "ChildBirth")'
+        }
+
+        var maleName = $('#textboxMaleName').val();
+        var femaleName = $('#textboxFemaleName').val();
+        var dateFrom = $('#textboxDateFrom').val();
+        var dateTo = $('#textboxDateTo').val();
+
+        var results = $.map($('input[name="ResultsIds"]:checked'), function (c) { return c.value; });
+
+        $.ajax({
+            type: "POST",
+            data: { maleName: maleName, femaleName: femaleName, dateFrom: dateFrom, dateTo: dateTo, resultsIds: results },
+            url: actiounurl.filter
+        });
+
+        alert('data was sent');
+    }
+</script>

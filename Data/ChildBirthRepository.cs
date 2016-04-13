@@ -18,6 +18,28 @@ namespace Data
             }
         }
 
+        public IList<ChildBirth> GetChildBirth(Filters filter)
+        {
+            using (var context = new RabbitsDBEntities())
+            {
+                IQueryable<ChildBirth> query = context.ChildBirth;
+
+                if (!string.IsNullOrEmpty(filter.MaleName))
+                    query = query.Where(x => x.MaleId1 == new MalesRepository().GetMale(filter.MaleName).Id);
+
+                if (!string.IsNullOrEmpty(filter.FemaleName))
+                    query = query.Where(x => x.FemaleId == new FemalesRepository().GetFemale(filter.FemaleName).Id);
+
+                if (filter.DateFrom.HasValue)
+                    query = query.Where(x => x.Birthday >= filter.DateFrom);
+
+                if (filter.DateTo.HasValue)
+                    query = query.Where(x => x.Birthday <= filter.DateTo);
+
+                return query.ToList();
+            }
+        }
+
         public ChildBirth GetChildBirth(int childBirthId)
         {
             using (var context = new RabbitsDBEntities())

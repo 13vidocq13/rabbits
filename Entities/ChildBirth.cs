@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Entities
 {
     using System;
@@ -25,10 +27,23 @@ namespace Entities
         public int MaleId1 { get; set; }
         public Nullable<int> MaleId2 { get; set; }
         public int ResultId { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         public System.DateTime StartDate1 { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         public Nullable<System.DateTime> StartDate2 { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         public System.DateTime ExpectBirthday { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         public System.DateTime Birthday { get; set; }
+
         public string Notes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
